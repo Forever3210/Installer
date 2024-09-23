@@ -1,0 +1,7 @@
+C:\Users\Gariso\Documents\Sources\Installer\Installer\obj\Debug\net8.0-windows\Installer.Form1.resources
+C:\Users\Gariso\Documents\Sources\Installer\Installer\obj\Debug\net8.0-windows\Installer.csproj.GenerateResource.cache
+C:\Users\Gariso\Documents\Sources\Installer\Installer\obj\Debug\net8.0-windows\Installer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gariso\Documents\Sources\Installer\Installer\obj\Debug\net8.0-windows\Installer.AssemblyInfoInputs.cache
+C:\Users\Gariso\Documents\Sources\Installer\Installer\obj\Debug\net8.0-windows\Installer.AssemblyInfo.cs
+C:\Users\Gariso\Documents\Sources\Installer\Installer\obj\Debug\net8.0-windows\Installer.csproj.CoreCompileInputs.cache
+C:\Users\Gariso\Documents\Sources\Installer\Installer\obj\Debug\net8.0-windows\Installer.Properties.Resources.resources
