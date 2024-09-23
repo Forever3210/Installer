@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gariso\\Downloads\\Installer\\Installer\\Installer\\Installer.csproj",
+      "projectUniqueName": "C:\\Users\\Gariso\\Documents\\Sources\\Installer\\Installer\\Installer.csproj",
       "projectName": "Installer",
-      "projectPath": "C:\\Users\\Gariso\\Downloads\\Installer\\Installer\\Installer\\Installer.csproj",
+      "projectPath": "C:\\Users\\Gariso\\Documents\\Sources\\Installer\\Installer\\Installer.csproj",
       "packagesPath": "C:\\Users\\Gariso\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gariso\\Downloads\\Installer\\Installer\\Installer\\obj\\",
+      "outputPath": "C:\\Users\\Gariso\\Documents\\Sources\\Installer\\Installer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -18,12 +18,51 @@ namespace Installer
             InitializeComponent();
             string extractionFolderName = "custom folder"; // Name of the extraction folder
             DownloadAndExtractContent(extractionFolderName);
+
         }
 
         // Click method to close the application
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private bool isDarkMode = false;
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            isDarkMode = !isDarkMode; // Alternar entre modos
+            UpdateTheme();
+        }
+        private void UpdateTheme()
+        {
+            if (isDarkMode)
+            {
+                this.BackColor = Color.FromArgb(32, 32, 35); // Cor de fundo escura
+                label1.ForeColor = Color.White;
+                label2.ForeColor = Color.White;
+                label3.ForeColor = Color.White;
+                label4.ForeColor = Color.White;
+                progressBar1.ForeColor = Color.White; // Cor da barra de progresso
+
+                pictureBox3.Image = Properties.Resources.minimize_black;
+                pictureBox2.Image = Properties.Resources.logout;
+                pictureBox1.Image = Properties.Resources.sun;
+
+            }
+            else
+            {
+                this.BackColor = Color.White; // Cor de fundo clara
+                label1.ForeColor = Color.Black;
+                label2.ForeColor = Color.Black;
+                label3.ForeColor = Color.Black;
+                label4.ForeColor = Color.Black;
+                progressBar1.ForeColor = Color.Black; // Cor da barra de progresso
+
+                pictureBox3.Image = Properties.Resources.minimize;
+                pictureBox2.Image = Properties.Resources.logout_white;
+                pictureBox1.Image = Properties.Resources.moon1;
+
+            }
         }
 
         // Asynchronous method to download and extract the content
@@ -40,6 +79,7 @@ namespace Installer
             }
 
             // ProgressBar settings
+            progressBar1.Style = ProgressBarStyle.Continuous;   
             progressBar1.Minimum = 0;
             progressBar1.Maximum = 200; // 100 for download, 100 for extraction
 
@@ -54,10 +94,15 @@ namespace Installer
                     stopwatch.Start();
                     await DownloadFileAsync(zipUrl, zipFilePath);
                     stopwatch.Stop();
+
+                    // Update the status label to show extraction status
+                    label2.Text = "Status: Extracting...";
+
                     MessageBox.Show("Download completed successfully!");
 
                     // Complete the first half of the progress bar
                     progressBar1.Value = 100;
+
                 }
                 catch (Exception ex)
                 {
@@ -69,9 +114,6 @@ namespace Installer
 
             try
             {
-                // Update the status label to show extraction status
-                label2.Text = "Status: Extracting...";
-
                 // Start extraction process (second half of the progress bar)
                 ExtractZipFile(zipFilePath, extractPath);
                 progressBar1.Value = 200; // Extraction completed
@@ -114,29 +156,28 @@ namespace Installer
                         totalRead += read;
                         await fileStream.WriteAsync(buffer, 0, read);
 
-                        // Ensure totalBytes is greater than zero for progress calculation
+                        // Atualizar a barra de progresso
                         if (totalBytes > 0)
                         {
                             int progressValue = (int)(100 * totalRead / totalBytes);
-                            progressBar1.Value = Math.Max(0, Math.Min(progressValue, 100)); // Limit to between 0 and 100
+                            progressBar1.Value = Math.Max(0, Math.Min(progressValue, 100)); // Limitar entre 0 e 100
                         }
                         else
                         {
-                            // If totalBytes is unknown, set progress to -1 for marquee
-                            progressBar1.Style = ProgressBarStyle.Marquee;
+                            progressBar1.Style = ProgressBarStyle.Marquee; // Estilo marquee para download de tamanho desconhecido
                         }
 
-                        // Calculate download speed (in MB/s)
+                        // Calcular a velocidade de download
                         TimeSpan elapsed = stopwatch.Elapsed - lastCheck;
                         if (elapsed.TotalSeconds > 1)
                         {
                             long bytesPerSecond = (totalRead - lastBytesRead) / (long)elapsed.TotalSeconds;
-                            downloadSpeedMBps = bytesPerSecond / (1024.0 * 1024.0); // Store download speed in MB/s
+                            downloadSpeedMBps = bytesPerSecond / (1024.0 * 1024.0); // Converter para MB/s
 
-                            // Update label with download speed
+                            // Atualizar label3 com a velocidade de download
                             label3.Text = $"Download Speed: {downloadSpeedMBps:F2} MB/s";
 
-                            // Reset tracking
+                            // Resetar os rastreamentos
                             lastBytesRead = totalRead;
                             lastCheck = stopwatch.Elapsed;
                         }
@@ -144,6 +185,8 @@ namespace Installer
                 }
             }
         }
+
+
 
         // Method to extract the .zip file and update progress for the second half of the progress bar
         private void ExtractZipFile(string zipFilePath, string extractPath)
@@ -191,8 +234,6 @@ namespace Installer
                 }
             }
         }
-
-
 
         // Method to delete files and folders
         private void DeleteFiles(string zipFilePath, string extractPath)

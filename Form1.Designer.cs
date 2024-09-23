@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
-            progressBar1 = new ProgressBar();
             pictureBox4 = new PictureBox();
             label3 = new Label();
             label4 = new Label();
+            progressBar1 = new ProgressBar();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -45,15 +46,18 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Image = Properties.Resources.moon;
             pictureBox1.Location = new Point(667, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(36, 36);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // pictureBox2
             // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(751, 3);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(36, 36);
@@ -64,6 +68,7 @@
             // 
             // pictureBox3
             // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(709, 3);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(36, 36);
@@ -83,22 +88,15 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(129, 234);
+            label2.Location = new Point(106, 234);
             label2.Name = "label2";
             label2.Size = new Size(50, 20);
             label2.TabIndex = 4;
             label2.Text = "label2";
             // 
-            // progressBar1
-            // 
-            progressBar1.ForeColor = Color.Turquoise;
-            progressBar1.Location = new Point(129, 202);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(574, 29);
-            progressBar1.TabIndex = 0;
-            // 
             // pictureBox4
             // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new Point(696, 382);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(63, 56);
@@ -111,9 +109,8 @@
             label3.AutoSize = true;
             label3.Location = new Point(533, 179);
             label3.Name = "label3";
-            label3.Size = new Size(50, 20);
+            label3.Size = new Size(0, 20);
             label3.TabIndex = 8;
-            label3.Text = "label3";
             // 
             // label4
             // 
@@ -123,15 +120,23 @@
             label4.Size = new Size(0, 20);
             label4.TabIndex = 9;
             // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(106, 202);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(606, 29);
+            progressBar1.Style = ProgressBarStyle.Continuous;
+            progressBar1.TabIndex = 0;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(795, 450);
+            Controls.Add(progressBar1);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(pictureBox4);
-            Controls.Add(progressBar1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox3);
@@ -155,9 +160,9 @@
         private PictureBox pictureBox3;
         private Label label1;
         private Label label2;
-        private ProgressBar progressBar1;
         private PictureBox pictureBox4;
         private Label label3;
         private Label label4;
+        private ProgressBar progressBar1;
     }
 }
