@@ -21,6 +21,11 @@ namespace Installer
 
         }
 
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         // Click method to close the application
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -81,7 +86,7 @@ namespace Installer
             }
 
             // ProgressBar settings
-            progressBar1.Style = ProgressBarStyle.Continuous;   
+            progressBar1.Style = ProgressBarStyle.Continuous;
             progressBar1.Minimum = 0;
             progressBar1.Maximum = 200; // 100 for download, 100 for extraction
 
