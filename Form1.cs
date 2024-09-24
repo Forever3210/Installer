@@ -42,11 +42,12 @@ namespace Installer
                 label2.ForeColor = Color.White;
                 label3.ForeColor = Color.White;
                 label4.ForeColor = Color.White;
+                progressBar1.Style = ProgressBarStyle.Continuous;
                 progressBar1.ForeColor = Color.White; // Cor da barra de progresso
 
-                pictureBox3.Image = Properties.Resources.minimize_black;
-                pictureBox2.Image = Properties.Resources.logout;
-                pictureBox1.Image = Properties.Resources.sun;
+                pictureBox3.Image = Properties.Resources.minimize;
+                pictureBox2.Image = Properties.Resources.logout_white;
+                pictureBox1.Image = Properties.Resources.moon;
 
             }
             else
@@ -56,11 +57,12 @@ namespace Installer
                 label2.ForeColor = Color.Black;
                 label3.ForeColor = Color.Black;
                 label4.ForeColor = Color.Black;
+                progressBar1.Style = ProgressBarStyle.Continuous;
                 progressBar1.ForeColor = Color.Black; // Cor da barra de progresso
 
-                pictureBox3.Image = Properties.Resources.minimize;
-                pictureBox2.Image = Properties.Resources.logout_white;
-                pictureBox1.Image = Properties.Resources.moon1;
+                pictureBox1.Image = Properties.Resources.sun;
+                pictureBox3.Image = Properties.Resources.minimize_black;
+                pictureBox2.Image = Properties.Resources.logout;
 
             }
         }
