@@ -1,13 +1,16 @@
+# Custom Installer
+An installer that can download any `.rar` file as long as it is the direct link. The installer automatically extracts it, deletes the `.rar` file, and creates a folder with the extracted content.
 
-# Custom installer
+Example download link: `your-link/download/file.rar`
 
-An installer that can download any .rar as long as it is the .rar's direct link automatically extracts it and deletes the .rar and it create a folder with the content.
-
-Link example: your-link/donwload/file.rar
+Modify the link to download what you need.
 
 ## Funcionalidades
 
-- Themes dark and light
-- Download a file
+- Light and Dark themes
+- Download files
 - Display metrics
 - Extract files
+
+## Showcase
+![Showcase](https://raw.githubusercontent.com/Henrique200005/Installer/refs/heads/main/Showcase.png)
